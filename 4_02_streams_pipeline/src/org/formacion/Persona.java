@@ -25,7 +25,12 @@ public class Persona {
     public Optional<String> getApellido2() {
         return apellido2;
     }
-
+    
+    int mycompare (String a, String b) {
+		
+		return a.codePointAt(b.compareTo("a")); 
+	}
+    
     @Override
     public String toString() {
         return nombre + "," + apellido1 + " " + apellido2.orElse("");

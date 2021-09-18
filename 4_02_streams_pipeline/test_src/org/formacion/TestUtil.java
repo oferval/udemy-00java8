@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
@@ -66,16 +67,16 @@ public class TestUtil {
     }
     
     
+    
     @Test
-    public void test_constructor_methodReferencesValueOf() {
+    @Ignore
+    public void NOtest_justToExecuteCode() {
     	
-    	//Given
+
     	Whatever<String> we = (o1,o2) -> Integer.valueOf(o1) - Integer.valueOf(o2); 
-    	
-    	//When
+
     	int valueTransformed = we.myMethod_methodReferencesValueOf("4");
-    	
-    	//Then
+
     	Assert.assertSame(4 , valueTransformed);
     	
     	String greet= we.getSaludo(Optional.of(new Persona("Jaro", "", Optional.of(""))));

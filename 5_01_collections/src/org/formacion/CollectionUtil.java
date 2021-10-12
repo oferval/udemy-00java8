@@ -1,6 +1,5 @@
 package org.formacion;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,8 +35,6 @@ public class CollectionUtil {
 	 * El metodo debe devolver "prod1:4,prod2:5," 
 	 */
 	public String aTexto (Map<String, Integer> factura) {
-		
-		//LinkedHashMap<String, Integer> facturaLinked =  (LinkedHashMap<String, Integer>) factura;
 		
 		StringBuilder stringBuilder = new StringBuilder();
 		

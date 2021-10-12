@@ -20,43 +20,50 @@ public class TestUtil {
 
     private PersonaUtil util;
     
-    @Before
-    public void init() {
-    	util = new PersonaUtil();
-    }
+    
+   @Before
+   public void init() {
+	   
+	   util = new PersonaUtil();
+   }
 
-    @Test
+    
+   @Test
    public void test_apellido2_null() {
-        List<Persona> resultado = util.listaSinApellido2().collect(Collectors.toList());
-        assertEquals(1, resultado.size());
-        assertEquals("John", resultado.get(0).getNombre());
+        
+	   List<Persona> resultado = util.listaSinApellido2().collect(Collectors.toList());
+       assertEquals(1, resultado.size());
+       assertEquals("John", resultado.get(0).getNombre());
     }
 
+   
     @Test
    public void test_obtener_nombres() {
-        List<String> resultado = util.listaNombres().collect(Collectors.toList());
+        
+    	List<String> resultado = util.listaNombres().collect(Collectors.toList());
 
         assertEquals(3, resultado.size());
         assertEquals("Antonia", resultado.get(0));
         assertEquals("John",resultado.get(1));
         assertEquals("Pedro", resultado.get(2));
-
     }
 
 
     @Test
     public void test_obtener_apellido1() {
-        List<String> resultado = util.listaApellido1Ordenada().collect(Collectors.toList());
+        
+    	List<String> resultado = util.listaApellido1Ordenada().collect(Collectors.toList());
 
         assertEquals(3,resultado.size());
         assertEquals("Garcia", resultado.get(0));
         assertEquals("Llull", resultado.get(1));
         assertEquals("smith", resultado.get(2));
-
     }
+    
     
     @Test
     public void test_constructor_methodReferencesConst() {
+    	
     	//Given
     	Whatever<String> we = (o1,o2) -> Integer.valueOf(o1) - Integer.valueOf(o2); 
     	//When
@@ -67,11 +74,10 @@ public class TestUtil {
     }
     
     
-    
-    @Test
+    @SuppressWarnings("unused")
+	@Test
     @Ignore
-    public void NOtest_justToExecuteCode() {
-    	
+    public void NOtest_justToExecuteMyCode() {
 
     	Whatever<String> we = (o1,o2) -> Integer.valueOf(o1) - Integer.valueOf(o2); 
 
@@ -94,9 +100,15 @@ public class TestUtil {
     	
     	List<Integer> listInt = Arrays.asList(1,2,3,4,5,6);
     	
+    	
     	Integer sumaInt = listInt.parallelStream()
     							 .peek(System.out::println)
     			                 .reduce(0, (int1, int2) -> int1 + int2);
+    	//or:
+    	sumaInt = listInt.parallelStream()
+				 		 .peek(System.out::println)
+				 		 .reduce(0, Integer::sum);
+    	
     	
     	String sumaStr1 = listInt.parallelStream()
 				                 .map(String::valueOf)
@@ -121,8 +133,8 @@ public class TestUtil {
       //Without merge (1)
         words.forEach( word -> {
         	wordsCounter.compute(word, (w ,prev) -> prev == null ? 1 : prev+1);
-        });
-    	
+        }); 
+        
     }
    
 }

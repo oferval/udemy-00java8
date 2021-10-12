@@ -13,7 +13,6 @@ public interface Whatever<T>{
 				
 		Function<String, Integer> conversor = Integer::new; 
 		return conversor.apply(valueToTransform);
-
 	}
 	
 	

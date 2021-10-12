@@ -1,9 +1,8 @@
 package org.formacion;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,14 +17,17 @@ public class TestUtil {
 	private List<Persona> lista;
 	private CollectionUtil util;
 	
+	
 	@Before
 	public void init() {
+	
 		lista = new LinkedList<>();
 		lista.add(new Persona("Juan de","Alicia",Optional.of("Martin")));
 		lista.add(new Persona("Victoria","Mel",Optional.empty()));
 		util = new CollectionUtil();
 		
 	}
+	
 	
 	@Test
 	public void test_list() {
@@ -47,6 +49,7 @@ public class TestUtil {
 		assertFalse(lista.get(1).getApellido2().isPresent());
 	}
 	
+	
 	@Test
 	public void test_a_texto() {
 	
@@ -56,8 +59,7 @@ public class TestUtil {
 		
 		String resultado = util.aTexto(map);
 		
-		assertEquals("prodA:2,prodB:5,", resultado);
-		
-		
+		assertEquals("prodA:2,prodB:5,", resultado);	
 	}
+	
 }

@@ -7,12 +7,13 @@ import java.util.stream.Stream;
 
 public class PersonaUtil {
 
-
     /** todos los metodos deben construir streams a partir de esta lista */
     private List<Persona> bbdd = new ArrayList<>();
 
+    
     public PersonaUtil() {
-        bbdd.add(new Persona ("Antonia","Garcia", Optional.of("Sastre")));
+    
+    	bbdd.add(new Persona ("Antonia","Garcia", Optional.of("Sastre")));
         bbdd.add(new Persona ("John","smith", Optional.empty()));
         bbdd.add(new Persona ("Pedro","Llull", Optional.of("Mir")));
     }
@@ -22,14 +23,17 @@ public class PersonaUtil {
      * Devuelve stream con las personas que no tiene segundo apellido
      */
     public Stream<Persona> listaSinApellido2() {
-        return null;
+    	
+    	return bbdd.stream()
+    			   .filter( person -> !person.getApellido2().isPresent());
     }
 
     /**
      * Devuelve stream con los nombres de todas las personas
      */
     public Stream<String> listaNombres() {
-        return null;
+    	
+    	return bbdd.stream().map( person -> person.getNombre());
     }
 
     /**
@@ -37,7 +41,15 @@ public class PersonaUtil {
      * pista: metodo de String compareToIgnoreCase
      */
     public Stream<String> listaApellido1Ordenada() {
-        return null;
+    	
+//ALT1    	return bbdd.stream().map( person -> person.getApellido1())
+//    						     .sorted();
+    	
+//ALT2    	return bbdd.stream().map( person -> person.getApellido1())
+//				   			    .sorted((person1, person2) -> person1.compareToIgnoreCase(person2));
+    	
+    	return bbdd.stream().map( person -> person.getApellido1())
+	   						.sorted(String::compareToIgnoreCase);
     }
 
 }

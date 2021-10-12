@@ -25,8 +25,7 @@ public class Persona {
     public Optional<String> getApellido2() {
         return apellido2;
     }
-    
-    
+
     @Override
     public String toString() {
         return nombre + "," + apellido1 + " " + apellido2.orElse("");

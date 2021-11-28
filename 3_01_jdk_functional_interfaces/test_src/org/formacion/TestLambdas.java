@@ -119,7 +119,7 @@ public class TestLambdas {
 		Validador<Persona> validador = new Validador<Persona>();
 
 		/* pasar un predicado que mire si el primer apellido es null */
-		validador.add( p -> PersonUtil.isNullSecondLastName(p));
+		validador.add( PersonUtil::isNullSecondLastName );
 		
 		assertTrue(validador.valida(new Persona("nombre","ape1","ape2")));
 		assertFalse(validador.valida(new Persona("nombre",null,"ape2")));
